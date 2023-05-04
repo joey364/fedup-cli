@@ -1,4 +1,4 @@
-module github/joey364/fedup-cli
+module github.com/joey364/fedup-cli
 
 go 1.19
 
