@@ -20,6 +20,7 @@ import (
 
 // Run command that installs the dependencies
 func install(deps []string) {
+	checkIfIsFedoraWorkstation()
 	for _, v := range deps {
 		cmd := exec.Command("sudo", "dnf", "install", v)
 
@@ -156,6 +157,7 @@ var rootCmd = &cobra.Command{
 	Short: "Upgrade fedora workstation",
 	Long:  `A cli to upgrade your fedora workstation installation.`,
 	Run: func(cmd *cobra.Command, args []string) {
+
 		var deps = []string{"jq", "curl"}
 		install(deps)
 		currentVersion := getCurrentReleaseVersion()
